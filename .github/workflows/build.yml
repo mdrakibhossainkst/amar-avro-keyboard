@@ -1,0 +1,42 @@
+name: Build Universal macOS package
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: macos-14
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Add Rust macOS targets
+        run: rustup target add aarch64-apple-darwin x86_64-apple-darwin
+
+      - name: Build Universal input method
+        run: make build
+
+      - name: Verify application
+        run: |
+          lipo -archs "build/Amar Avro Keyboard.app/Contents/MacOS/AmarAvroKeyboard"
+          plutil -lint "build/Amar Avro Keyboard.app/Contents/Info.plist"
+          codesign --verify --deep --strict "build/Amar Avro Keyboard.app"
+
+      - name: Create DMG and PKG
+        run: bash scripts/create_dmg.sh
+
+      - name: Upload installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: Amar-Avro-Keyboard-universal-macOS
+          path: |
+            build/Amar-Avro-Keyboard-*.dmg
+            build/Amar-Avro-Keyboard.pkg
+          if-no-files-found: error

@@ -92,7 +92,7 @@ make uninstall
 
 Developed by **Md Rakib Hossain**.
 
-- [GitHub](https://github.com/mdrakibhossainkst/amar-avro-keyboard)
+- [GitHub](https://github.com/mdrakibhossainkst/)
 - [Facebook](https://www.facebook.com/itsrakiblxp)
 
 ## License

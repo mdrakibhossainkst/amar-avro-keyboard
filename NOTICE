@@ -1,0 +1,17 @@
+Amar Avro Keyboard
+Copyright (c) 2026 Amar Avro Keyboard contributors
+
+This project is a modified work based on Lekho:
+https://github.com/ARahim3/Lekho
+Copyright held by Lekho's contributors, including Abdur Rahim.
+
+The Bengali transliteration engine is OpenBangla's riti:
+https://github.com/OpenBangla/riti
+Copyright held by the OpenBangla and riti contributors.
+
+Lekho, this fork's modifications to covered files, and riti are made available
+under the Mozilla Public License 2.0. The license notice and official license
+URL are in LICENSE.
+
+"Avro" is used descriptively to identify phonetic-layout compatibility. This
+project is not affiliated with or endorsed by OmicronLab.
